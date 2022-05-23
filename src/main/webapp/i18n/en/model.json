@@ -1,0 +1,27 @@
+{
+  "valvadApp": {
+    "model": {
+      "home": {
+        "title": "Models",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Model",
+        "createOrEditLabel": "Create or edit a Model",
+        "search": "Search for Model",
+        "notFound": "No Models found"
+      },
+      "created": "A new Model is created with identifier {{ param }}",
+      "updated": "A Model is updated with identifier {{ param }}",
+      "deleted": "A Model is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Model {{ id }}?"
+      },
+      "detail": {
+        "title": "Model"
+      },
+      "id": "ID",
+      "name": "Name",
+      "years": "Years",
+      "compatibility": "Compatibility"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "valvadApp": {
+    "part": {
+      "home": {
+        "title": "Parts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Part",
+        "createOrEditLabel": "Create or edit a Part",
+        "search": "Search for Part",
+        "notFound": "No Parts found"
+      },
+      "created": "A new Part is created with identifier {{ param }}",
+      "updated": "A Part is updated with identifier {{ param }}",
+      "deleted": "A Part is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Part {{ id }}?"
+      },
+      "detail": {
+        "title": "Part"
+      },
+      "id": "ID",
+      "description": "Description",
+      "number": "Number",
+      "brand": "Brand",
+      "compatibility": "Compatibility",
+      "ad": "Ad"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "valvadApp": {
+    "ad": {
+      "home": {
+        "title": "Ads",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ad",
+        "createOrEditLabel": "Créer ou éditer un Ad",
+        "search": "Recherche pour Ad",
+        "notFound": "Aucun Ad trouvé"
+      },
+      "created": "Un nouveau Ad a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ad avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ad avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Ad {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ad"
+      },
+      "id": "ID",
+      "description": "Description",
+      "quality": "Quality",
+      "price": "Price",
+      "photo": "Photo",
+      "publisher": "Publisher",
+      "part": "Part"
+    }
+  }
+}

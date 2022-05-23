@@ -1,0 +1,27 @@
+{
+  "valvadApp": {
+    "model": {
+      "home": {
+        "title": "Models",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Model",
+        "createOrEditLabel": "Créer ou éditer un Model",
+        "search": "Recherche pour Model",
+        "notFound": "Aucun Model trouvé"
+      },
+      "created": "Un nouveau Model a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Model avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Model avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Model {{ id }} ?"
+      },
+      "detail": {
+        "title": "Model"
+      },
+      "id": "ID",
+      "name": "Name",
+      "years": "Years",
+      "compatibility": "Compatibility"
+    }
+  }
+}

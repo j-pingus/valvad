@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-ad-heading" data-cy="AdCreateUpdateHeading" jhiTranslate="valvadApp.ad.home.createOrEditLabel">Create or edit a Ad</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.ad.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+          <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.ad.quality" for="field_quality">Quality</label>
+          <select class="form-control" name="quality" formControlName="quality" id="field_quality" data-cy="quality">
+            <option [ngValue]="null">{{ 'valvadApp.Quality.null' | translate }}</option>
+            <option *ngFor="let quality of qualityValues" [value]="quality">{{ 'valvadApp.Quality.' + quality | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('quality')!.invalid && (editForm.get('quality')!.dirty || editForm.get('quality')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('quality')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.ad.price" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+          <div *ngIf="editForm.get('price')!.invalid && (editForm.get('price')!.dirty || editForm.get('price')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('price')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('price')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.ad.publisher" for="field_publisher">Publisher</label>
+          <select class="form-control" id="field_publisher" data-cy="publisher" name="publisher" formControlName="publisher">
+            <option *ngIf="!editForm.get('publisher')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('publisher')!.value?.id ? editForm.get('publisher')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['publisher'])!.invalid && (editForm.get(['publisher'])!.dirty || editForm.get(['publisher'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['publisher'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.ad.part" for="field_part">Part</label>
+          <select class="form-control" id="field_part" data-cy="part" name="part" formControlName="part">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="partOption.id === editForm.get('part')!.value?.id ? editForm.get('part')!.value : partOption"
+              *ngFor="let partOption of partsSharedCollection; trackBy: trackPartById"
+            >
+              {{ partOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

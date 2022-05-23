@@ -48,6 +48,20 @@ public class CacheConfiguration {
             createCache(cm, com.valvad.domain.User.class.getName());
             createCache(cm, com.valvad.domain.Authority.class.getName());
             createCache(cm, com.valvad.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.valvad.domain.Ad.class.getName());
+            createCache(cm, com.valvad.domain.Ad.class.getName() + ".photos");
+            createCache(cm, com.valvad.domain.Photo.class.getName());
+            createCache(cm, com.valvad.domain.Part.class.getName());
+            createCache(cm, com.valvad.domain.Part.class.getName() + ".compatibilities");
+            createCache(cm, com.valvad.domain.Part.class.getName() + ".ads");
+            createCache(cm, com.valvad.domain.Brand.class.getName());
+            createCache(cm, com.valvad.domain.Brand.class.getName() + ".parts");
+            createCache(cm, com.valvad.domain.Model.class.getName());
+            createCache(cm, com.valvad.domain.Model.class.getName() + ".compatibilities");
+            createCache(cm, com.valvad.domain.Profile.class.getName());
+            createCache(cm, com.valvad.domain.Message.class.getName());
+            createCache(cm, com.valvad.domain.Permit.class.getName());
+            createCache(cm, com.valvad.domain.Compatibility.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

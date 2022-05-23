@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Ad.
+    -->
+    <changeSet id="20220523051907-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="publisher_id"
+                                 baseTableName="ad"
+                                 constraintName="fk_ad__publisher_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="part_id"
+                                 baseTableName="ad"
+                                 constraintName="fk_ad__part_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part"/>
+    </changeSet>
+</databaseChangeLog>

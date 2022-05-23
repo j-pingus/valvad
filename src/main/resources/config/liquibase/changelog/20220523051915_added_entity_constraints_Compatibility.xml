@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Compatibility.
+    -->
+    <changeSet id="20220523051915-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="part_id"
+                                 baseTableName="compatibility"
+                                 constraintName="fk_compatibility__part_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part"/>
+
+        <addForeignKeyConstraint baseColumnNames="model_id"
+                                 baseTableName="compatibility"
+                                 constraintName="fk_compatibility__model_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="model"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523051907",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ad",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quality",
+      "fieldType": "Quality",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "UNKNOWN,UNUSED,USED,VERY_USED,TO_REPAIR"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ad",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "photo",
+      "otherEntityRelationshipName": "ad",
+      "relationshipName": "photo",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "ad",
+      "relationshipName": "publisher",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "part",
+      "otherEntityRelationshipName": "ad",
+      "relationshipName": "part",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

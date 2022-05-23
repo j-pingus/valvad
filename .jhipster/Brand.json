@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523051910",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "brand",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Brand",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "part",
+      "otherEntityRelationshipName": "brand",
+      "relationshipName": "part",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523051909",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "part",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "number",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Part",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "brand",
+      "otherEntityRelationshipName": "part",
+      "relationshipName": "brand",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "compatibility",
+      "otherEntityRelationshipName": "part",
+      "relationshipName": "compatibility",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "ad",
+      "otherEntityRelationshipName": "part",
+      "relationshipName": "ad",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
