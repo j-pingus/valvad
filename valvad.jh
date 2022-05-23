@@ -1,0 +1,75 @@
+entity Ad {
+	description String  required
+    quality Quality  required
+    price Double  required
+}
+enum Quality {
+	UNKNOWN
+    UNUSED
+    USED
+    VERY_USED
+    TO_REPAIR
+}
+entity Photo {
+	binary Blob  required
+    description String  required
+}
+entity Part{
+	description String  required
+    number String  required
+}
+entity Brand{
+    name String  required
+}
+entity Model{
+    name String required
+    years String
+}
+entity Profile{
+	email String
+    instagram String
+    phone String
+    facebook String
+}
+entity Message{
+    subject Subject
+    subjectId Long
+	body String  required
+}
+entity Permit{
+	/** identifier of the permit object 
+    i.e. Part-1 or Model-9999
+    **/
+	subject Subject required
+    subjectId Long  required
+    right Right required
+}
+entity Compatibility{
+
+}
+enum Subject{
+	PART
+    MODEL
+    AD
+    OTHER
+}
+enum Right{
+    WRITE
+    CREATOR
+    MAINTAINER
+}
+relationship OneToOne {
+	Profile to User    
+}
+relationship OneToMany {
+    Ad to Photo  
+}
+relationship ManyToOne{
+    Compatibility to Part
+ 	Part to Brand
+    Compatibility to Model
+	Ad{publisher required} to User
+    Message{sender required} to User
+    Permit to User
+	Ad to Part
+}
