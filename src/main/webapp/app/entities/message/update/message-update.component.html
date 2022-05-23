@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-message-heading" data-cy="MessageCreateUpdateHeading" jhiTranslate="valvadApp.message.home.createOrEditLabel">
+        Create or edit a Message
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.message.subject" for="field_subject">Subject</label>
+          <select class="form-control" name="subject" formControlName="subject" id="field_subject" data-cy="subject">
+            <option [ngValue]="null">{{ 'valvadApp.Subject.null' | translate }}</option>
+            <option *ngFor="let subject of subjectValues" [value]="subject">{{ 'valvadApp.Subject.' + subject | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.message.subjectId" for="field_subjectId">Subject Id</label>
+          <input type="number" class="form-control" name="subjectId" id="field_subjectId" data-cy="subjectId" formControlName="subjectId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.message.body" for="field_body">Body</label>
+          <input type="text" class="form-control" name="body" id="field_body" data-cy="body" formControlName="body" />
+          <div *ngIf="editForm.get('body')!.invalid && (editForm.get('body')!.dirty || editForm.get('body')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('body')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.message.sender" for="field_sender">Sender</label>
+          <select class="form-control" id="field_sender" data-cy="sender" name="sender" formControlName="sender">
+            <option *ngIf="!editForm.get('sender')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('sender')!.value?.id ? editForm.get('sender')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['sender'])!.invalid && (editForm.get(['sender'])!.dirty || editForm.get(['sender'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['sender'])?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

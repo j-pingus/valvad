@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-permit-heading" data-cy="PermitCreateUpdateHeading" jhiTranslate="valvadApp.permit.home.createOrEditLabel">
+        Create or edit a Permit
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="valvadApp.permit.subject"
+            for="field_subject"
+            [ngbTooltip]="'valvadApp.permit.help.subject' | translate"
+            >Subject</label
+          >
+          <select class="form-control" name="subject" formControlName="subject" id="field_subject" data-cy="subject">
+            <option [ngValue]="null">{{ 'valvadApp.Subject.null' | translate }}</option>
+            <option *ngFor="let subject of subjectValues" [value]="subject">{{ 'valvadApp.Subject.' + subject | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('subject')!.invalid && (editForm.get('subject')!.dirty || editForm.get('subject')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('subject')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.permit.subjectId" for="field_subjectId">Subject Id</label>
+          <input type="number" class="form-control" name="subjectId" id="field_subjectId" data-cy="subjectId" formControlName="subjectId" />
+          <div *ngIf="editForm.get('subjectId')!.invalid && (editForm.get('subjectId')!.dirty || editForm.get('subjectId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('subjectId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('subjectId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.permit.right" for="field_right">Right</label>
+          <select class="form-control" name="right" formControlName="right" id="field_right" data-cy="right">
+            <option [ngValue]="null">{{ 'valvadApp.Right.null' | translate }}</option>
+            <option *ngFor="let right of rightValues" [value]="right">{{ 'valvadApp.Right.' + right | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('right')!.invalid && (editForm.get('right')!.dirty || editForm.get('right')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('right')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.permit.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="photo">
+      <h2 data-cy="photoDetailsHeading"><span jhiTranslate="valvadApp.photo.detail.title">Photo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ photo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.photo.binary">Binary</span></dt>
+        <dd>
+          <div *ngIf="photo.binary">
+            <a (click)="openFile(photo.binary, photo.binaryContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ photo.binaryContentType }}, {{ byteSize(photo.binary) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.photo.description">Description</span></dt>
+        <dd>
+          <span>{{ photo.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.photo.ad">Ad</span></dt>
+        <dd>
+          <div *ngIf="photo.ad">
+            <a [routerLink]="['/ad', photo.ad?.id, 'view']">{{ photo.ad?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/photo', photo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

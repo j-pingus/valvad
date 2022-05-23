@@ -1,0 +1,31 @@
+{
+  "valvadApp": {
+    "permit": {
+      "home": {
+        "title": "Permits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Permit",
+        "createOrEditLabel": "Create or edit a Permit",
+        "search": "Search for Permit",
+        "notFound": "No Permits found"
+      },
+      "created": "A new Permit is created with identifier {{ param }}",
+      "updated": "A Permit is updated with identifier {{ param }}",
+      "deleted": "A Permit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Permit {{ id }}?"
+      },
+      "detail": {
+        "title": "Permit"
+      },
+      "id": "ID",
+      "subject": "Subject",
+      "subjectId": "Subject Id",
+      "right": "Right",
+      "user": "User",
+      "help": {
+        "subject": "identifier of the permit object\ni.e. Part-1 or Model-9999"
+      }
+    }
+  }
+}

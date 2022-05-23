@@ -1,0 +1,26 @@
+{
+  "valvadApp": {
+    "compatibility": {
+      "home": {
+        "title": "Compatibilities",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Compatibility",
+        "createOrEditLabel": "Créer ou éditer un Compatibility",
+        "search": "Recherche pour Compatibility",
+        "notFound": "Aucun Compatibility trouvé"
+      },
+      "created": "Un nouveau Compatibility a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Compatibility avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Compatibility avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Compatibility {{ id }} ?"
+      },
+      "detail": {
+        "title": "Compatibility"
+      },
+      "id": "ID",
+      "part": "Part",
+      "model": "Model"
+    }
+  }
+}

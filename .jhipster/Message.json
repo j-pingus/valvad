@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523051913",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "message",
+  "fields": [
+    {
+      "fieldName": "subject",
+      "fieldType": "Subject",
+      "fieldValues": "PART,MODEL,AD,OTHER"
+    },
+    {
+      "fieldName": "subjectId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "body",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Message",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "message",
+      "relationshipName": "sender",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}
