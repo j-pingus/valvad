@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523050821",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "compatibility",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Compatibility",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "part",
+      "otherEntityRelationshipName": "compatibility",
+      "relationshipName": "part",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "model",
+      "otherEntityRelationshipName": "compatibility",
+      "relationshipName": "model",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

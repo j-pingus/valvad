@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="model">
+      <h2 data-cy="modelDetailsHeading"><span jhiTranslate="valvadApp.model.detail.title">Model</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ model.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.model.name">Name</span></dt>
+        <dd>
+          <span>{{ model.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.model.years">Years</span></dt>
+        <dd>
+          <span>{{ model.years }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.model.compatibility">Compatibility</span></dt>
+        <dd>
+          <div *ngIf="model.compatibility">
+            <a [routerLink]="['/compatibility', model.compatibility?.id, 'view']">{{ model.compatibility?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/model', model.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

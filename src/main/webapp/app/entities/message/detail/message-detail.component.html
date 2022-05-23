@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="message">
+      <h2 data-cy="messageDetailsHeading"><span jhiTranslate="valvadApp.message.detail.title">Message</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ message.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.message.subject">Subject</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'valvadApp.Subject.' + message.subject }}">{{ message.subject }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.message.subjectId">Subject Id</span></dt>
+        <dd>
+          <span>{{ message.subjectId }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.message.body">Body</span></dt>
+        <dd>
+          <span>{{ message.body }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.message.sender">Sender</span></dt>
+        <dd>
+          <span>{{ message.sender?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/message', message.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

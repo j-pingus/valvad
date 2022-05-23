@@ -1,0 +1,31 @@
+{
+  "valvadApp": {
+    "permit": {
+      "home": {
+        "title": "Permits",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Permit",
+        "createOrEditLabel": "Créer ou éditer un Permit",
+        "search": "Recherche pour Permit",
+        "notFound": "Aucun Permit trouvé"
+      },
+      "created": "Un nouveau Permit a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Permit avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Permit avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Permit {{ id }} ?"
+      },
+      "detail": {
+        "title": "Permit"
+      },
+      "id": "ID",
+      "subject": "Subject",
+      "subjectId": "Subject Id",
+      "right": "Right",
+      "user": "User",
+      "help": {
+        "subject": "identifier of the permit object\ni.e. Part-1 or Model-9999"
+      }
+    }
+  }
+}

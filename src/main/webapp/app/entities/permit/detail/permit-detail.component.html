@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="permit">
+      <h2 data-cy="permitDetailsHeading"><span jhiTranslate="valvadApp.permit.detail.title">Permit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ permit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.permit.subject" [ngbTooltip]="'valvadApp.permit.help.subject' | translate">Subject</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'valvadApp.Subject.' + permit.subject }}">{{ permit.subject }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.permit.subjectId">Subject Id</span></dt>
+        <dd>
+          <span>{{ permit.subjectId }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.permit.right">Right</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'valvadApp.Right.' + permit.right }}">{{ permit.right }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.permit.user">User</span></dt>
+        <dd>
+          <span>{{ permit.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/permit', permit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "valvadApp": {
+    "photo": {
+      "home": {
+        "title": "Photos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Photo",
+        "createOrEditLabel": "Créer ou éditer un Photo",
+        "search": "Recherche pour Photo",
+        "notFound": "Aucun Photo trouvé"
+      },
+      "created": "Un nouveau Photo a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Photo avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Photo avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Photo {{ id }} ?"
+      },
+      "detail": {
+        "title": "Photo"
+      },
+      "id": "ID",
+      "binary": "Binary",
+      "description": "Description",
+      "ad": "Ad"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "valvadApp": {
+    "Right": {
+      "null": "",
+      "WRITE": "WRITE",
+      "CREATOR": "CREATOR",
+      "MAINTAINER": "MAINTAINER"
+    }
+  }
+}

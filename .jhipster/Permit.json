@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523050820",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "permit",
+  "fields": [
+    {
+      "fieldName": "subject",
+      "fieldType": "Subject",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PART,MODEL,AD,OTHER",
+      "javadoc": "identifier of the permit object\\ni.e. Part-1 or Model-9999"
+    },
+    {
+      "fieldName": "subjectId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "right",
+      "fieldType": "Right",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "WRITE,CREATOR,MAINTAINER"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Permit",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "permit",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ad">
+      <h2 data-cy="adDetailsHeading"><span jhiTranslate="valvadApp.ad.detail.title">Ad</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ad.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.ad.description">Description</span></dt>
+        <dd>
+          <span>{{ ad.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.ad.quality">Quality</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'valvadApp.Quality.' + ad.quality }}">{{ ad.quality }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.ad.price">Price</span></dt>
+        <dd>
+          <span>{{ ad.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.ad.publisher">Publisher</span></dt>
+        <dd>
+          <span>{{ ad.publisher?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="valvadApp.ad.part">Part</span></dt>
+        <dd>
+          <div *ngIf="ad.part">
+            <a [routerLink]="['/part', ad.part?.id, 'view']">{{ ad.part?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ad', ad.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-photo-heading" data-cy="PhotoCreateUpdateHeading" jhiTranslate="valvadApp.photo.home.createOrEditLabel">
+        Create or edit a Photo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.photo.binary" for="field_binary">Binary</label>
+          <div>
+            <div *ngIf="editForm.get('binary')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('binary')!.value, editForm.get('binaryContentType')!.value)"
+                jhiTranslate="entity.action.open"
+                >open</a
+              ><br />
+              <span class="pull-start">{{ editForm.get('binaryContentType')!.value }}, {{ byteSize(editForm.get('binary')!.value) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ binary: null }); editForm.patchValue({ binaryContentType: null })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_binary"
+              data-cy="binary"
+              (change)="setFileData($event, 'binary', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="binary" id="field_binary" data-cy="binary" formControlName="binary" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="binaryContentType"
+            id="field_binaryContentType"
+            formControlName="binaryContentType"
+          />
+          <div *ngIf="editForm.get('binary')!.invalid && (editForm.get('binary')!.dirty || editForm.get('binary')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('binary')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.photo.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+          <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="valvadApp.photo.ad" for="field_ad">Ad</label>
+          <select class="form-control" id="field_ad" data-cy="ad" name="ad" formControlName="ad">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="adOption.id === editForm.get('ad')!.value?.id ? editForm.get('ad')!.value : adOption"
+              *ngFor="let adOption of adsSharedCollection; trackBy: trackAdById"
+            >
+              {{ adOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

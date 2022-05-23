@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20220523050817",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "model",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "years",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Model",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "compatibility",
+      "otherEntityRelationshipName": "model",
+      "relationshipName": "compatibility",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
